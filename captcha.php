@@ -1,0 +1,12 @@
+<?php
+$rand=md5(microtime());
+$rand=substr($rand,0,6);
+session_start();
+$_SESSION['cap_no']=$rand;
+$img=imagecreate(100,50);
+imagecolorallocate($img,100,200,225);
+$textcol=imagecolorallocate($img,0,0,0);
+imagestring($img,20,5,5,$rand,$textcol);
+header('content:image/jpeg');
+imagejpeg($img);
+?>
